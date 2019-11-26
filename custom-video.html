@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+<head>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="custom-video.js"></script>
+	<title></title>
+	<script type="text/javascript">
+		//Jodio 플러그인 사용하지 않을시 주석 제거하시오.
+		/*	function play(){
+				var video = document.getElementById('video');
+				var button = document.getElementById('play');
+				if(video.paused){
+					video.play();
+					button.innerHTML="<img src='pause_over.png' id='play_over'>";
+				} else {
+					video.pause();
+					button.innerHTML="<img src='play_over.png' id='play_over'>";
+				}
+			}
+			function stop(){
+				var video = document.getElementById('video');
+				var button = document.getElementById('play');
+				video.currentTime = 0;
+				video.pause();
+				button.innerHTML="<img src='play.png' id='play_over'>";
+			}
+			function skip(value){
+				var video = document.getElementById('video');
+				video.currentTime += value;
+			}
+			function volume(){
+				var video =  document.getElementById('video');
+				var sound = document.getElementById('volume');
+				if(video.volume == 0){
+					video.volume = 1;
+					sound.innerHTML="<img src='vol_on_over.png' id='vol_over'>"
+				} else {
+					video.volume = 0;
+					sound.innerHTML="<img src='vol_off_over.png' id='vol_over'>"
+				}
+			}
+			function down(){
+				window.open('video.mp4','_blank');
+			}
+			
+			//마우스 오버 대체 이미지 구현
+			function play_over(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('play_over');
+				if(video.paused){
+					over_img.src="play_over.png";
+				} else {
+					over_img.src="pause_over.png";
+				}
+			}
+			function play_out(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('play_over');
+				if(video.paused){
+					over_img.src="play.png";
+				} else {
+					over_img.src="pause.png";
+				}
+			}
+			function stop_over(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('stop_over');
+				over_img.src="stop_over.png";
+			}
+			function stop_out(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('stop_over');
+				over_img.src="stop.png";
+			}
+		
+			function rew_over(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('rew_over');
+				over_img.src="rew_over.png";
+			}
+			function rew_out(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('rew_over');
+				over_img.src="rew.png";
+			}
+		
+			function fast_over(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('fast_over');
+				over_img.src="fast_over.png";
+			}
+			function fast_out(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('fast_over');
+				over_img.src="fast.png";
+			}
+		
+			function vol_over(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('vol_over');
+				if(video.volume == 0){
+					over_img.src="vol_off_over.png";
+				} else {
+					over_img.src="vol_on_over.png";
+				}
+			}
+			function vol_out(){
+				var video = document.getElementById('video');
+				var over_img = document.getElementById('vol_over');
+				if(video.volume == 0){
+					over_img.src="vol_off.png";
+				} else {
+					over_img.src="vol_on.png";
+				}
+			}*/
+
+
+		$(document).ready(function () {
+			$("video").CustomVideo({
+				//사용자 지정 속성
+				//기본값
+				// auto: true,
+				// loop: true,
+				// controls: true,
+				// play: true,
+				// stop: true,
+				// rew: true,
+				// fast: true,
+				// vol: true,
+				// download: true,
+				// 아래는 각 버튼에 들어가는 이미지나 텍스트 지정값(다른 스타일을 사용하려면 js수정 필요)
+				// play_text: "<img src='play.png' id='play_over'>",
+				// pause_text: "<img src='pause.png' id='play_over'>",
+				// stop_text: "<img src='stop.png' id='stop_over'>",
+				// rew_text: "<img src='rew.png' id='rew_over'>",
+				// fast_text: "<img src='fast.png' id='fast_over'>",
+				// vol_text: "<img src='vol_on.png' id='vol_over'>",
+				// download_text: "Down"
+			});
+		});
+	</script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+
+	</style>
+	</style>
+</head>
+
+<body>
+	<video>
+		<source src="./video.mp4" tyle="video/mp4">
+	</video>
+	<!--JODEO 플러그인 사용하지 않을시 주석 제거하시오-->
+	<!-- <div class="button">
+			<button id="rew" onclick="skip(-10)" onmouseover="rew_over()" onmouseout="rew_out()"><img src="rew.png" id="rew_over"></button>
+			<button id="play" onclick="play()" onmouseover="play_over()" onmouseout="play_out()"><img src="play.png" id="play_over"></button>
+			<button id="stop" onclick="stop()" onmouseover="stop_over()" onmouseout="stop_out()"><img src="stop.png" id="stop_over"></button>
+			<button id="fastFwd" onclick="skip(10)" onmouseover="fast_over()" onmouseout="fast_out()"><img src="fast.png" id="fast_over"></button>
+			<button id="volume" onclick="volume()" onmouseover="vol_over()" onmouseout="vol_out()"><img src="vol_on.png" id="vol_over"></button>
+			<button id="download" onclick="down()"><a href="video.mp4" target="_blank" download="video.mp4">Down</a></button>
+		</div> -->
+</body>
+
+</html>
